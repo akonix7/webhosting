@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+<title>Protected Content</title>
+<script type="text/javascript">
+function checkPassword() {
+    var correctPassword = "yourpassword"; // Set your desired password here
+    var enteredPassword = prompt("Please enter the password to access this content:");
+
+    if (enteredPassword === correctPassword) {
+        alert("Password correct! Welcome.");
+        // You can unhide content or redirect to another page here
+        document.getElementById("protectedContent").style.display = "block";
+    } else {
+        alert("Incorrect password. Access denied.");
+    }
+}
+</script>
 </head>
-<body>
-    <form>
-        <label for="passwordInput">Enter your password:</label>
-        <input type="password" id="passwordInput">
-        <input type="button" value="Submit" onclick="checkPassword()">
-    </form>
+<body onload="checkPassword()">
 
-    <script type="text/javascript">
-        function checkPassword() {
-            var correctPassword = "pass"; // Replace with your actual password
-            var enteredPassword = document.getElementById("passwordInput").value;
+<div id="protectedContent" style="display:none;">
+    <h1>Welcome to the Protected Content!</h1>
+    <p>This is the content you can only see after entering the correct password.</p>
+</div>
 
-            if (enteredPassword === correctPassword) {
-                window.location.href = "newPage.html"; // Redirect to the new page
-            } else {
-                alert("Incorrect password. Please try again.");
-            }
-        }
-    </script>
 </body>
 </html>

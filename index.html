@@ -1,69 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Password Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        input[type="password"] {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 200px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #message {
-            margin-top: 15px;
-            color: red;
-        }
-    </style>
+    <title>Login Page</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Enter Password</h2>
-        <input type="password" id="passwordInput" placeholder="Enter password">
-        <button onclick="checkPassword()">Submit</button>
-        <p id="message"></p>
-    </div>
+    <form>
+        <label for="passwordInput">Enter your password:</label>
+        <input type="password" id="passwordInput">
+        <input type="button" value="Submit" onclick="checkPassword()">
+    </form>
 
-    <script>
+    <script type="text/javascript">
         function checkPassword() {
-            var correctPassword = "mysecretpassword"; // Set your password here
+            var correctPassword = "pass"; // Replace with your actual password
             var enteredPassword = document.getElementById("passwordInput").value;
-            var messageElement = document.getElementById("message");
 
             if (enteredPassword === correctPassword) {
-                messageElement.style.color = "green";
-                messageElement.textContent = "Access Granted!";
-                // You can redirect to another page or show content here
-                // window.location.href = "welcome.html"; 
+                window.location.href = "newPage.html"; // Redirect to the new page
             } else {
-                messageElement.style.color = "red";
-                messageElement.textContent = "Incorrect Password. Please try again.";
+                alert("Incorrect password. Please try again.");
             }
         }
     </script>
